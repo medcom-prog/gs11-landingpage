@@ -1,10 +1,8 @@
-/* GS11 Landing Page Stylesheet */
-
-/* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* GS11 Landing Page Stylesheet - Optimized for Mobile with iPhone Safe Area Support */
 
 /* CSS Variables */
 :root {
+    /* Colors */
     --primary-color: #000000;
     --secondary-color: #0056b3;
     --accent-color: #ff4500;
@@ -16,10 +14,32 @@
     --danger-color: #dc3545;
     --text-color: #333333;
     --background-color: #ffffff;
+    
+    /* UI Elements */
     --border-radius: 5px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --section-padding: 80px 0;
+    
+    /* Responsive Typography */
+    --h1-font-size-desktop: 3.5rem;
+    --h1-font-size-tablet: 2.8rem;
+    --h1-font-size-mobile: 2rem;
+    --h1-font-size-small: 1.8rem;
+    
+    --h2-font-size-desktop: 2.8rem;
+    --h2-font-size-tablet: 2.2rem;
+    --h2-font-size-mobile: 1.8rem;
+    --h2-font-size-small: 1.6rem;
+    
+    --h3-font-size-desktop: 2rem;
+    --h3-font-size-tablet: 1.8rem;
+    --h3-font-size-mobile: 1.5rem;
+    --h3-font-size-small: 1.3rem;
+    
+    --body-font-size-desktop: 1rem;
+    --body-font-size-tablet: 0.95rem;
+    --body-font-size-mobile: 0.9rem;
 }
 
 /* Base Styles */
@@ -35,11 +55,13 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: var(--body-font-size-desktop);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
     overflow-x: hidden;
+    /* Add padding for iPhone safe area */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,17 +74,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: var(--h1-font-size-desktop);
     margin-bottom: 30px;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: var(--h2-font-size-desktop);
     margin-bottom: 25px;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: var(--h3-font-size-desktop);
     margin-bottom: 20px;
 }
 
@@ -74,10 +96,26 @@ a {
     color: var(--secondary-color);
     text-decoration: none;
     transition: var(--transition);
+    touch-action: manipulation; /* Remove 300ms delay on mobile */
 }
 
-a:hover {
+a:hover, a:focus {
     color: var(--accent-color);
+}
+
+/* Improved focus styles for accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 img {
@@ -90,6 +128,8 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
 }
 
 section {
@@ -101,26 +141,50 @@ section {
     font-weight: 700;
 }
 
+/* Lazy-loading images */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
 /* Pre-header */
 .pre-header {
     background-color: var(--primary-color);
     color: var(--light-color);
     padding: 10px 0;
+    padding-top: max(10px, env(safe-area-inset-top)); /* Safe area for iPhone notch */
     text-align: center;
     font-weight: 500;
+    position: relative;
+    z-index: 1000;
+    width: 100%;
 }
 
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 500px;
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100); /* Adjusted height for mobile */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--light-color);
     overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    /* Adjust for iPhone safe area */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.hero-section.hero-visible {
+    opacity: 1;
 }
 
 .hero-video-container {
@@ -166,8 +230,11 @@ section {
 }
 
 .cta-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 15px 30px;
+    min-height: 48px; /* Ensure minimum touch target size */
     background-color: var(--accent-color);
     color: var(--light-color);
     font-size: 1.1rem;
@@ -178,13 +245,19 @@ section {
     border: none;
     cursor: pointer;
     text-align: center;
+    touch-action: manipulation; /* Remove 300ms delay on mobile */
 }
 
-.cta-button:hover {
+.cta-button:hover, .cta-button:focus {
     background-color: #e03e00;
     color: var(--light-color);
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.touch-active {
+    transform: scale(0.98);
+    background-color: #d03800;
 }
 
 .cta-subtext {
@@ -200,7 +273,7 @@ section {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -220,8 +293,8 @@ section {
 }
 
 .icon-container {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -475,13 +548,15 @@ section {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
+    padding: 3px 0;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 14px 15px;
+    min-height: 48px;
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
     font-family: 'Poppins', sans-serif;
@@ -497,11 +572,58 @@ section {
     width: 100%;
 }
 
+/* Form error message */
+.form-error-message {
+    color: var(--danger-color);
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.field-error {
+    color: var(--danger-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Form success message */
+.form-success {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: var(--border-radius);
+}
+
+.form-success .icon-container {
+    margin: 0 auto 20px;
+    background-color: var(--success-color);
+}
+
 /* Footer */
 .landing-footer {
     background-color: var(--primary-color);
     color: var(--light-color);
     padding: 60px 0 20px;
+    padding-bottom: max(20px, env(safe-area-inset-bottom)); /* Safe area for iPhone home indicator */
     text-align: center;
 }
 
@@ -523,10 +645,30 @@ section {
     margin-bottom: 15px;
 }
 
+.footer-info p, 
+.footer-hours p {
+    margin-bottom: 12px;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     font-size: 0.9rem;
+}
+
+/* Offline notification */
+#offline-notification {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--warning-color);
+    color: var(--dark-color);
+    padding: 10px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom)); /* Safe area for iPhone home indicator */
+    text-align: center;
+    z-index: 9999;
+    font-size: 14px;
 }
 
 /* Animation Styles */
@@ -568,16 +710,6 @@ section {
 }
 
 /* Hero animation */
-.hero-section {
-    position: relative;
-    opacity: 0;
-    transition: opacity 1s ease-out;
-}
-
-.hero-section.hero-visible {
-    opacity: 1;
-}
-
 .hero-section [data-animate] {
     opacity: 0;
     transform: translateY(30px);
@@ -587,6 +719,18 @@ section {
 .hero-section [data-animate].animated {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Reduced motion */
+.reduced-motion .animate-on-scroll {
+    transition: opacity 0.3s ease-out;
+}
+
+.reduced-motion .animate-fade-in-up,
+.reduced-motion .animate-fade-in-left,
+.reduced-motion .animate-fade-in-right,
+.reduced-motion .animate-zoom-in {
+    transform: none;
 }
 
 /* Pulserende effekt for CTA-knapper */
@@ -606,45 +750,87 @@ section {
     animation: pulse 2s infinite;
 }
 
+/* Alternative pulse animation for mobile */
+@keyframes pulse-mobile {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 992px) {
     h1 {
-        font-size: 3rem;
+        font-size: var(--h1-font-size-tablet);
     }
     
     h2 {
-        font-size: 2.5rem;
+        font-size: var(--h2-font-size-tablet);
+    }
+    
+    h3 {
+        font-size: var(--h3-font-size-tablet);
+    }
+    
+    body {
+        font-size: var(--body-font-size-tablet);
     }
     
     .hero-section {
         height: auto;
         min-height: 500px;
         padding: 100px 0;
+        padding-top: max(100px, env(safe-area-inset-top));
     }
     
-    .features,
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
     .testimonial-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+    }
+    
+    section {
+        padding: 60px 0;
     }
 }
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: var(--h1-font-size-mobile);
     }
     
     h2 {
-        font-size: 2rem;
+        font-size: var(--h2-font-size-mobile);
     }
     
     h3 {
-        font-size: 1.5rem;
+        font-size: var(--h3-font-size-mobile);
+    }
+    
+    body {
+        font-size: var(--body-font-size-mobile);
     }
     
     .hero-section {
         min-height: 400px;
         padding: 80px 0;
+        padding-top: max(80px, env(safe-area-inset-top));
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
     }
     
     .step {
@@ -662,20 +848,55 @@ section {
         flex-direction: column;
         align-items: center;
     }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    .special-offer, .contact-snippet {
+        padding: 40px 0;
+    }
+    
+    .offer-highlight {
+        font-size: 1.5rem;
+    }
+    
+    /* Optimize animations for mobile */
+    .animate-on-scroll {
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+    
+    /* Use alternative pulse animation on mobile */
+    .pulse-animation {
+        animation: pulse-mobile 2s infinite;
+        box-shadow: 0 4px 10px rgba(255, 69, 0, 0.5);
+    }
 }
 
 @media (max-width: 576px) {
     h1 {
-        font-size: 2rem;
+        font-size: var(--h1-font-size-small);
+        margin-bottom: 15px;
     }
     
     h2 {
-        font-size: 1.8rem;
+        font-size: var(--h2-font-size-small);
+        margin-bottom: 15px;
+    }
+    
+    h3 {
+        font-size: var(--h3-font-size-small);
+        margin-bottom: 15px;
+    }
+    
+    p {
+        margin-bottom: 15px;
     }
     
     .hero-section {
         min-height: 350px;
         padding: 60px 0;
+        padding-top: max(60px, env(safe-area-inset-top));
     }
     
     .cta-button {
@@ -691,5 +912,124 @@ section {
     .icon-container {
         margin-right: 0;
         margin-bottom: 15px;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .special-offer, .contact-snippet {
+        padding: 30px 0;
+    }
+    
+    .offer-highlight {
+        font-size: 1.3rem;
+    }
+    
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .contact-form {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    .offer-highlight {
+        font-size: 1.2rem;
+    }
+}
+
+/* Landscape mode optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 450px;
+        height: auto;
+        padding: 50px 0;
+        padding-top: max(50px, env(safe-area-inset-top));
+    }
+    
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .process-steps {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .step {
+        margin-bottom: 0;
+    }
+}
+
+/* iPhone X and newer specific adjustments */
+@supports (padding-top: env(safe-area-inset-top)) {
+    /* Add extra padding to the top of the page for notch */
+    .pre-header {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    /* Ensure content doesn't get hidden behind the home indicator */
+    .landing-footer {
+        padding-bottom: max(20px, env(safe-area-inset-bottom));
+    }
+    
+    /* Adjust fixed elements to respect safe areas */
+    #offline-notification {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    /* Adjust container padding for left/right safe areas */
+    .container {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #121212;
+        --text-color: #f0f0f0;
+        --background-color: #121212;
+        --light-color: #f0f0f0;
+        --dark-color: #121212;
+        --gray-color: #aaaaaa;
+    }
+    
+    .benefit-item, .feature, .testimonial-card, .contact-form {
+        background-color: #1e1e1e;
+        color: var(--light-color);
+    }
+    
+    .hero-video-container::after {
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .pulse-animation {
+        animation: none;
+        box-shadow: 0 4px 10px rgba(255, 69, 0, 0.5);
+    }
+    
+    .animate-on-scroll {
+        transition: opacity 0.3s ease-out;
+    }
+    
+    html {
+        scroll-behavior: auto;
     }
 }

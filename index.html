@@ -5,300 +5,303 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
         <title>GS11 Sikkerhet - Gratis sikkerhetssjekk + vaktmestertjenester</title>
         <meta name="description" content="Hos GS11 får du mye mer enn bare vektertjenester. Vi tilbyr trygghet og skreddersydde løsninger med ekte verdi. Få gratis vurdering og vaktmestertjenester inkludert!">
+        
+        <!-- Preload critical resources -->
+        <link rel="preload" href="gs11_style.css" as="style">
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;700&display=swap" as="style">
+        
         <link rel="stylesheet" href="gs11_style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-
         <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1052842737013056'); 
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1052842737013056&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
-  
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1052842737013056'); 
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none"
+                src="https://www.facebook.com/tr?id=1052842737013056&ev=PageView&noscript=1"/>
+        </noscript>
+        <!-- End Meta Pixel Code -->
     </head>
 
-
-
-<body>
-    <!-- Pre-header / Announcement Bar -->
-    <div class="pre-header animate-on-scroll animate-fade-in-up" id="pre-header">
-        <div class="container">
-            <p>🛡️ Tidsbegrenset tilbud! De 10 første nye kundene får 50% rabatt på første måned! 🛡️</p>
+    <body>
+        <!-- Pre-header / Announcement Bar -->
+        <div class="pre-header animate-on-scroll animate-fade-in-up" id="pre-header">
+            <div class="container">
+                <p>🛡️ Tidsbegrenset tilbud! De 10 første nye kundene får 50% rabatt på første måned! 🛡️</p>
+            </div>
         </div>
-    </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <div class="hero-video-container">
-            <img src="images/security_camera_hero.jpg" alt="GS11 Sikkerhet - Profesjonelle vektertjenester" class="hero-video">
-        </div>
-        
-        <div class="container">
-            <h1 data-animate>🛡️ Gratis sikkerhetssjekk + vaktmestertjenester – og <span class="highlight">halv pris</span> for de 10 første!</h1>
-            <p data-animate data-delay="200">Hos GS11 får du mye mer enn bare vektertjenester. Vi tilbyr trygghet – og skreddersydde løsninger med ekte verdi.</p>
-            <a href="#contact-form-section" class="cta-button pulse-animation" data-animate data-delay="400">Bestill Gratis Sikkerhetssjekk Nå!</a>
-            <p class="cta-subtext" data-animate data-delay="600">Helt uforpliktende & inkludert gratis vaktmestertjenester!</p>
-        </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-video-container">
+                <!-- Responsive image with srcset -->
+                <img src="images/security_camera_hero_small.jpg" 
+                    srcset="images/security_camera_hero_small.jpg 480w,
+                            images/security_camera_hero.jpg 1200w"
+                    sizes="100vw"
+                    alt="GS11 Sikkerhet - Profesjonelle vektertjenester" 
+                    class="hero-video">
+            </div>
+            
+            <div class="container">
+                <h1 data-animate>🛡️ Gratis sikkerhetssjekk + vaktmestertjenester – og <span class="highlight">halv pris</span> for de 10 første!</h1>
+                <p data-animate data-delay="200">Hos GS11 får du mye mer enn bare vektertjenester. Vi tilbyr trygghet – og skreddersydde løsninger med ekte verdi.</p>
+                <a href="#contact-form-section" class="cta-button pulse-animation" data-animate data-delay="400">Bestill Gratis Sikkerhetssjekk Nå!</a>
+                <p class="cta-subtext" data-animate data-delay="600">Helt uforpliktende & inkludert gratis vaktmestertjenester!</p>
+            </div>
+        </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section" id="benefits">
-        <div class="container">
-            <div class="benefits-grid animate-on-scroll animate-fade-in-up">
-                <div class="benefit-item">
+        <!-- Benefits Section -->
+        <section class="benefits-section" id="benefits">
+            <div class="container">
+                <div class="benefits-grid animate-on-scroll animate-fade-in-up">
+                    <div class="benefit-item">
+                        <div class="icon-container">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <p>Gratis vurdering</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon-container">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <p>Skreddersydd sikkerhetsplan</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon-container">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <p>Gratis vaktmestertjenester inkludert</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon-container">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <p>Sertifiserte vektere – når du trenger det</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="services-overview" id="problem">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll animate-fade-in-up">Er du bekymret for sikkerheten i Oslo og omegn?</h2>
+                <p class="section-subtitle animate-on-scroll animate-fade-in-up">I dagens samfunn er sikkerhet viktigere enn noensinne. Innbrudd, hærverk og uønskede hendelser kan skje når som helst. Mange bedrifter og privatpersoner opplever at tradisjonelle sikkerhetstiltak ikke er tilstrekkelige, og at responstiden er for lang når noe først skjer.</p>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="why-choose-us" id="solution">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll animate-fade-in-up">GS11 Sikkerhet: Vi skaper <span>trygghet</span> der du er</h2>
+                <p class="section-subtitle animate-on-scroll animate-fade-in-up">Vi leverer profesjonelle sikkerhetstjenester for arrangementer, bygg og næringsliv – med fokus på trygghet, tilstedeværelse og kvalitet.</p>
+                
+                <div class="features">
+                    <div class="feature animate-on-scroll animate-zoom-in">
+                        <div class="icon-container">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Områdekontroll</h3>
+                        <p>Vi utfører patruljer og inspeksjonsrunder i definerte områder for å forebygge innbrudd, hærverk og andre uønskede hendelser.</p>
+                    </div>
+                    
+                    <div class="feature animate-on-scroll animate-zoom-in">
+                        <div class="icon-container">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Fast vakthold</h3>
+                        <p>Våre erfarne vektere sørger for kontinuerlig sikkerhet ved din eiendom eller arrangement, med rask responstid og profesjonell håndtering.</p>
+                    </div>
+                    
+                    <div class="feature animate-on-scroll animate-zoom-in">
+                        <div class="icon-container">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Arrangementsikkerhet</h3>
+                        <p>Vi sikrer at ditt arrangement gjennomføres trygt og sikkert, med diskret og profesjonell tilstedeværelse av våre sertifiserte vektere.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-snippet animate-on-scroll animate-fade-in-up">
+                    <div class="container">
+                        <h2>Klar for en tryggere hverdag?</h2>
+                        <p>Ta det første steget mot bedre sikkerhet for din bedrift eller eiendom. Vi hjelper deg gjerne!</p>
+                        <a href="#contact-form-section" class="cta-button pulse-animation">Ja, jeg vil ha gratis sikkerhetssjekk!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offer Section -->
+        <section class="special-offer" id="offer">
+            <div class="container animate-on-scroll animate-zoom-in">
+                <div class="offer-content">
+                    <h2>🎁 EKSKLUSIV BONUS!</h2>
+                    <p class="offer-highlight">De 10 første som signerer får 50% RABATT på første måned</p>
+                    <p>Test våre tjenester med mindre risiko. Vårt mål er at du skal føle deg tryggere etter bare én uke.</p>
+                    <a href="#contact-form-section" class="cta-button pulse-animation">Sikre Deg Tilbudet Nå!</a>
+                    <p class="alt-contact animate-on-scroll animate-fade-in-up">Tilbudet utløper snart!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Risk-Free Section -->
+        <section class="risk-free" id="risk-free">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll animate-fade-in-up">Prøv oss – helt uten risiko</h2>
+                <p class="section-subtitle animate-on-scroll animate-fade-in-up">Usikker på om vektertjenester er riktig for deg? Vi tilbyr <strong>14 dager gratis</strong> for nye bedriftskunder – uten bindingstid. Vårt mål er at du skal føle deg tryggere etter bare én uke. Hvis ikke? Da avslutter vi – <strong>kostnadsfritt</strong>.</p>
+                
+                <div class="process-steps">
+                    <div class="step animate-on-scroll animate-fade-in-right">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Gratis sikkerhetssjekk</h3>
+                            <p>Vi gjennomfører en grundig vurdering av dine sikkerhetsbehov og identifiserer potensielle risikoområder.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step animate-on-scroll animate-fade-in-up">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Skreddersydd sikkerhetsplan</h3>
+                            <p>Basert på vurderingen utarbeider vi en tilpasset sikkerhetsplan som møter dine spesifikke behov.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step animate-on-scroll animate-fade-in-up">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>14 dagers gratis prøveperiode</h3>
+                            <p>Opplev våre tjenester i praksis uten kostnad eller forpliktelser i to fulle uker.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step animate-on-scroll animate-fade-in-left">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Fortsett kun hvis du er fornøyd</h3>
+                            <p>Ingen bindingstid, ingen skjulte kostnader. Du fortsetter kun hvis du er 100% fornøyd med tjenesten.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll animate-fade-in-up">Hva Sier Våre <span>Partnere</span>?</h2>
+                <p class="section-subtitle animate-on-scroll animate-fade-in-up">Våre kunder velger oss fordi vi er til stede, til å stole på og tilbyr mer enn forventet.</p>
+                
+                <div class="testimonial-grid">
+                    <div class="testimonial-card animate-on-scroll animate-fade-in-left">
+                        <p class="quote">"GS11 SIKKERHET har vært en stor hjelp for oss når det gjelder sikkerhet.
+                            De stiller alltid opp når vi trenger det, og vi opplever dem som profesjonelle, fleksible og til å stole på. Det gir oss en ekstra trygghet i hverdagen, og vi er veldig fornøyde med samarbeidet. "</p>
+                        <p class="author">Hasle Torg</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-full" id="contact-form-section">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll animate-fade-in-up">
+                    Klar for en <span>Tryggere Hverdag</span> i Oslo og omegn?
+                </h2>
+                <p class="section-subtitle animate-on-scroll animate-fade-in-up">
+                    Ta det første steget mot bedre sikkerhet for din bedrift eller eiendom. Fyll ut skjemaet nedenfor for en gratis og uforpliktende sikkerhetssjekk, inkludert gratis vaktmestertjenester.
+                </p>
+            
+                <form
+                    id="landing-page-contact-form"
+                    class="contact-form animate-on-scroll animate-fade-in-left"
+                >
+                    <div class="form-group">
+                        <label for="name" id="name-label">Navn:</label>
+                        <input type="text" id="name" name="name" required aria-labelledby="name-label" aria-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email" id="email-label">E-post:</label>
+                        <input type="email" id="email" name="email" required inputmode="email" autocomplete="email" aria-labelledby="email-label" aria-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" id="phone-label">Telefon:</label>
+                        <input type="tel" id="phone" name="phone" required inputmode="tel" pattern="[0-9+\s]*" placeholder="f.eks. 970 12 345" aria-labelledby="phone-label" aria-required="true" />
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type" id="service-type-label">Type tjeneste:</label>
+                        <select id="service-type" name="service-type" required aria-labelledby="service-type-label" aria-required="true">
+                            <option value="" disabled selected>Velg type sikkerhetstjeneste...</option>
+                            <option value="områdekontroll">Områdekontroll</option>
+                            <option value="fast-vakthold">Fast vakthold</option>
+                            <option value="arrangement">Arrangementsikkerhet</option>
+                            <option value="annet">Annet (spesifiser i melding)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" id="message-label">Melding (valgfritt):</label>
+                        <textarea id="message" name="message" rows="4" aria-labelledby="message-label"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="cta-button pulse-animation" aria-label="Send forespørsel om gratis sikkerhetssjekk">
+                            Send Forespørsel om Gratis Sikkerhetssjekk!
+                        </button>
+                    </div>
+                </form>
+            
+                <div id="form-success" style="display: none;" class="form-success animate-on-scroll animate-fade-in-up">
                     <div class="icon-container">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <p>Gratis vurdering</p>
+                    <h3>Takk for din henvendelse!</h3>
+                    <p>Vi har mottatt din forespørsel om en gratis sikkerhetssjekk og vil kontakte deg innen 24 timer.</p>
+                    <p>Husk at de 10 første kundene får 50% rabatt på første måned!</p>
                 </div>
-                <div class="benefit-item">
-                    <div class="icon-container">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <p>Skreddersydd sikkerhetsplan</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon-container">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <p>Gratis vaktmestertjenester inkludert</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon-container">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <p>Sertifiserte vektere – når du trenger det</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="services-overview" id="problem">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll animate-fade-in-up">Er du bekymret for sikkerheten i Oslo og omegn?</h2>
-            <p class="section-subtitle animate-on-scroll animate-fade-in-up">I dagens samfunn er sikkerhet viktigere enn noensinne. Innbrudd, hærverk og uønskede hendelser kan skje når som helst. Mange bedrifter og privatpersoner opplever at tradisjonelle sikkerhetstiltak ikke er tilstrekkelige, og at responstiden er for lang når noe først skjer.</p>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="why-choose-us" id="solution">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll animate-fade-in-up">GS11 Sikkerhet: Vi skaper <span>trygghet</span> der du er</h2>
-            <p class="section-subtitle animate-on-scroll animate-fade-in-up">Vi leverer profesjonelle sikkerhetstjenester for arrangementer, bygg og næringsliv – med fokus på trygghet, tilstedeværelse og kvalitet.</p>
             
-            <div class="features">
-                <div class="feature animate-on-scroll animate-zoom-in">
-                    <div class="icon-container">
-                        <i class="fas fa-shield-alt"></i>
+                <p class="alt-contact animate-on-scroll animate-fade-in-up">
+                    Du kan også ringe oss direkte på: <a href="tel:+4797043841" aria-label="Ring oss på 970 43 841">970 43 841</a>
+                </p>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="landing-footer" id="footer">
+            <div class="container animate-on-scroll animate-fade-in-up">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <h3>GS11 SIKKERHET</h3>
+                        <p>Romsaas alle 20, 2063<br>Jessheim, Norge</p>
+                        <p>E-post: <a href="mailto:gs11sikkerhet@gmail.com" aria-label="Send e-post til gs11sikkerhet@gmail.com">gs11sikkerhet@gmail.com</a></p>
+                        <p>Telefon: <a href="tel:+4797043841" aria-label="Ring oss på 970 43 841">970 43 841</a></p>
+                        <p>Org. nummer: 935 1210 43</p>
                     </div>
-                    <h3>Områdekontroll</h3>
-                    <p>Vi utfører patruljer og inspeksjonsrunder i definerte områder for å forebygge innbrudd, hærverk og andre uønskede hendelser.</p>
+                    <div class="footer-hours">
+                        <h3>Åpningstider</h3>
+                        <p>Mandag - Søndag<br>08:00 - 00:00</p>
+                    </div>
                 </div>
-                
-                <div class="feature animate-on-scroll animate-zoom-in">
-                    <div class="icon-container">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Fast vakthold</h3>
-                    <p>Våre erfarne vektere sørger for kontinuerlig sikkerhet ved din eiendom eller arrangement, med rask responstid og profesjonell håndtering.</p>
-                </div>
-                
-                <div class="feature animate-on-scroll animate-zoom-in">
-                    <div class="icon-container">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>Arrangementsikkerhet</h3>
-                    <p>Vi sikrer at ditt arrangement gjennomføres trygt og sikkert, med diskret og profesjonell tilstedeværelse av våre sertifiserte vektere.</p>
+                <div class="footer-bottom">
+                    <p>&copy; <span id="current-year"></span> GS11 Sikkerhet. Alle rettigheter reservert.</p>
                 </div>
             </div>
-            
-            <div class="contact-snippet animate-on-scroll animate-fade-in-up">
-                <div class="container">
-                    <h2>Klar for en tryggere hverdag?</h2>
-                    <p>Ta det første steget mot bedre sikkerhet for din bedrift eller eiendom. Vi hjelper deg gjerne!</p>
-                    <a href="#contact-form-section" class="cta-button pulse-animation">Ja, jeg vil ha gratis sikkerhetssjekk!</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </footer>
 
-    <!-- Special Offer Section -->
-    <section class="special-offer" id="offer">
-        <div class="container animate-on-scroll animate-zoom-in">
-            <div class="offer-content">
-                <h2>🎁 EKSKLUSIV BONUS!</h2>
-                <p class="offer-highlight">De 10 første som signerer får 50% RABATT på første måned</p>
-                <p>Test våre tjenester med mindre risiko. Vårt mål er at du skal føle deg tryggere etter bare én uke.</p>
-                <a href="#contact-form-section" class="cta-button pulse-animation">Sikre Deg Tilbudet Nå!</a>
-                <p class="alt-contact animate-on-scroll animate-fade-in-up">Tilbudet utløper snart!</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Risk-Free Section -->
-    <section class="risk-free" id="risk-free">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll animate-fade-in-up">Prøv oss – helt uten risiko</h2>
-            <p class="section-subtitle animate-on-scroll animate-fade-in-up">Usikker på om vektertjenester er riktig for deg? Vi tilbyr <strong>14 dager gratis</strong> for nye bedriftskunder – uten bindingstid. Vårt mål er at du skal føle deg tryggere etter bare én uke. Hvis ikke? Da avslutter vi – <strong>kostnadsfritt</strong>.</p>
-            
-            <div class="process-steps">
-                <div class="step animate-on-scroll animate-fade-in-right">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Gratis sikkerhetssjekk</h3>
-                        <p>Vi gjennomfører en grundig vurdering av dine sikkerhetsbehov og identifiserer potensielle risikoområder.</p>
-                    </div>
-                </div>
-                
-                <div class="step animate-on-scroll animate-fade-in-up">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Skreddersydd sikkerhetsplan</h3>
-                        <p>Basert på vurderingen utarbeider vi en tilpasset sikkerhetsplan som møter dine spesifikke behov.</p>
-                    </div>
-                </div>
-                
-                <div class="step animate-on-scroll animate-fade-in-up">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>14 dagers gratis prøveperiode</h3>
-                        <p>Opplev våre tjenester i praksis uten kostnad eller forpliktelser i to fulle uker.</p>
-                    </div>
-                </div>
-                
-                <div class="step animate-on-scroll animate-fade-in-left">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <h3>Fortsett kun hvis du er fornøyd</h3>
-                        <p>Ingen bindingstid, ingen skjulte kostnader. Du fortsetter kun hvis du er 100% fornøyd med tjenesten.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll animate-fade-in-up">Hva Sier Våre <span>Partnere</span>?</h2>
-            <p class="section-subtitle animate-on-scroll animate-fade-in-up">Våre kunder velger oss fordi vi er til stede, til å stole på og tilbyr mer enn forventet.</p>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card animate-on-scroll animate-fade-in-left">
-                    <p class="quote">"GS11 SIKKERHET har vært en stor hjelp for oss når det gjelder sikkerhet.
-                        De stiller alltid opp når vi trenger det, og vi opplever dem som profesjonelle, fleksible og til å stole på. Det gir oss en ekstra trygghet i hverdagen, og vi er veldig fornøyde med samarbeidet. "</p>
-                    <p class="author">Hasle Torg</p>
-                </div>
-                
-            
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form Section -->
-    <section class="contact-full" id="contact-form-section">
-        <div class="container">
-          <h2 class="section-title animate-on-scroll animate-fade-in-up">
-            Klar for en <span>Tryggere Hverdag</span> i Oslo og omegn?
-          </h2>
-          <p class="section-subtitle animate-on-scroll animate-fade-in-up">
-            Ta det første steget mot bedre sikkerhet for din bedrift eller eiendom. Fyll ut skjemaet nedenfor for en gratis og uforpliktende sikkerhetssjekk, inkludert gratis vaktmestertjenester.
-          </p>
-      
-          <form
-            id="landing-page-contact-form"
-            class="contact-form animate-on-scroll animate-fade-in-left"
-          >
-            <div class="form-group">
-              <label for="name">Navn:</label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">E-post:</label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">Telefon:</label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-            <div class="form-group">
-              <label for="service-type">Type tjeneste:</label>
-              <select id="service-type" name="service-type" required>
-                <option value="" disabled selected>Velg type sikkerhetstjeneste...</option>
-                <option value="områdekontroll">Områdekontroll</option>
-                <option value="fast-vakthold">Fast vakthold</option>
-                <option value="arrangement">Arrangementsikkerhet</option>
-                <option value="annet">Annet (spesifiser i melding)</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Melding (valgfritt):</label>
-              <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="cta-button pulse-animation">
-                Send Forespørsel om Gratis Sikkerhetssjekk!
-              </button>
-            </div>
-          </form>
-      
-          <div id="form-success" style="display: none;" class="form-success animate-on-scroll animate-fade-in-up">
-            <div class="icon-container">
-              <i class="fas fa-check-circle"></i>
-            </div>
-            <h3>Takk for din henvendelse!</h3>
-            <p>Vi har mottatt din forespørsel om en gratis sikkerhetssjekk og vil kontakte deg innen 24 timer.</p>
-            <p>Husk at de 10 første kundene får 50% rabatt på første måned!</p>
-          </div>
-      
-          <p class="alt-contact animate-on-scroll animate-fade-in-up">
-            Du kan også ringe oss direkte på: <a href="tel:+4797043841">970 43 841</a>
-          </p>
-        </div>
-      </section>
-      
-    
-
-    <!-- Footer -->
-    <footer class="landing-footer" id="footer">
-        <div class="container animate-on-scroll animate-fade-in-up">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>GS11 SIKKERHET</h3>
-                    <p>Romsaas alle 20, 2063<br>Jessheim, Norge</p>
-                    <p>E-post: gs11sikkerhet@gmail.com</p>
-                    <p>Telefon: 970 43 841</p>
-                    <p>Org. nummer: 935 1210 43</p>
-                </div>
-                <div class="footer-hours">
-                    <h3>Åpningstider</h3>
-                    <p>Mandag - Søndag<br>08:00 - 00:00</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> GS11 Sikkerhet. Alle rettigheter reservert.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript for animations -->
-    <script src="gs11_script.js"></script>
-</body>
+        <!-- JavaScript for animations -->
+        <script src="gs11_script.js"></script>
+    </body>
 </html>
