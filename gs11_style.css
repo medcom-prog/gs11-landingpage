@@ -1,4 +1,4 @@
-/* GS11 Landing Page Stylesheet */
+/* GS11 Landing Page Stylesheet with iOS Safe Area Support */
 
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -20,6 +20,12 @@
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     --section-padding: 80px 0;
+    
+    /* Safe area insets with fallbacks */
+    --safe-area-inset-top: env(safe-area-inset-top, 0px);
+    --safe-area-inset-right: env(safe-area-inset-right, 0px);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-area-inset-left: env(safe-area-inset-left, 0px);
 }
 
 /* Base Styles */
@@ -40,6 +46,11 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     overflow-x: hidden;
+    /* Add padding for iOS safe areas */
+    padding-top: var(--safe-area-inset-top);
+    padding-right: var(--safe-area-inset-right);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -90,6 +101,8 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    padding-left: calc(20px + var(--safe-area-inset-left));
+    padding-right: calc(20px + var(--safe-area-inset-right));
 }
 
 section {
@@ -106,8 +119,13 @@ section {
     background-color: var(--primary-color);
     color: var(--light-color);
     padding: 10px 0;
+    padding-top: calc(10px + var(--safe-area-inset-top));
     text-align: center;
     font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
 /* Hero Section */
@@ -121,6 +139,9 @@ section {
     text-align: center;
     color: var(--light-color);
     overflow: hidden;
+    /* Adjust for safe area insets */
+    margin-top: calc(-1 * var(--safe-area-inset-top));
+    padding-top: var(--safe-area-inset-top);
 }
 
 .hero-video-container {
@@ -502,6 +523,7 @@ section {
     background-color: var(--primary-color);
     color: var(--light-color);
     padding: 60px 0 20px;
+    padding-bottom: calc(20px + var(--safe-area-inset-bottom));
     text-align: center;
 }
 
@@ -620,6 +642,7 @@ section {
         height: auto;
         min-height: 500px;
         padding: 100px 0;
+        padding-top: calc(100px + var(--safe-area-inset-top));
     }
     
     .features,
@@ -645,6 +668,7 @@ section {
     .hero-section {
         min-height: 400px;
         padding: 80px 0;
+        padding-top: calc(80px + var(--safe-area-inset-top));
     }
     
     .step {
@@ -676,6 +700,7 @@ section {
     .hero-section {
         min-height: 350px;
         padding: 60px 0;
+        padding-top: calc(60px + var(--safe-area-inset-top));
     }
     
     .cta-button {
@@ -691,5 +716,35 @@ section {
     .icon-container {
         margin-right: 0;
         margin-bottom: 15px;
+    }
+}
+
+/* iOS-specific adjustments */
+@supports (padding-top: env(safe-area-inset-top)) {
+    /* These styles only apply if the browser supports env() */
+    .pre-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    /* Fix for iPhone X and newer with notch */
+    @media screen and (orientation: portrait) {
+        .pre-header {
+            padding-top: calc(10px + env(safe-area-inset-top));
+        }
+        
+        .hero-section {
+            margin-top: calc(-1 * env(safe-area-inset-top));
+            padding-top: env(safe-area-inset-top);
+        }
+    }
+    
+    /* Fix for landscape mode */
+    @media screen and (orientation: landscape) {
+        .container {
+            padding-left: calc(20px + env(safe-area-inset-left));
+            padding-right: calc(20px + env(safe-area-inset-right));
+        }
     }
 }
