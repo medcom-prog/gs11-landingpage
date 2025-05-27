@@ -1,13 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded - initializing animations");
 
-  // --- Update Copyright Year ---
   const yearSpan = document.getElementById("current-year");
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // --- Enhanced Scroll Animations using Intersection Observer ---
   const observerOptions = {
     root: null,
     rootMargin: "0px",
@@ -18,25 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("Element intersecting:", entry.target);
-
-        // Get stagger delay if present
         const delay = entry.target.dataset.staggerDelay
           ? parseInt(entry.target.dataset.staggerDelay) * 150
           : 0;
 
-        // Add visible class after delay
         setTimeout(() => {
           entry.target.classList.add("is-visible");
         }, delay);
 
-        // Stop observing after animation
         observer.unobserve(entry.target);
       }
     });
   };
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
-
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   console.log(`Found ${animatedElements.length} elements to animate`);
 
@@ -60,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- Animate hero inner content on page load ---
   const heroContent = document.querySelectorAll(".hero-section [data-animate]");
   console.log(`Found ${heroContent.length} hero elements to animate`);
 
@@ -71,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, delay + 300);
   });
 
-  // --- Smooth Scrolling for internal links ---
   document.querySelectorAll("a[href^='#']").forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
@@ -92,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // --- Form Submission with Basin integration ---
+  // --- Form Submission with Meta Pixel "Lead" tracking ---
   const contactForm = document.getElementById("landing-page-contact-form");
   const successBox = document.getElementById("form-success");
 
@@ -112,6 +103,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         if (response.ok) {
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead');
+          }
+
           contactForm.style.display = "none";
           successBox.style.display = "block";
         } else {
@@ -122,6 +117,35 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // --- Meta Pixel Custom Event Tracking for buttons and contact links ---
+
+  // Spore alle knapper med klassen .cta-button
+  document.querySelectorAll('.cta-button').forEach(button => {
+    button.addEventListener('click', () => {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'KlikkPåKnappeCTA');
+      }
+    });
+  });
+
+  // Spore klikk på telefonlenker
+  document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'KlikkPåTelefon');
+      }
+    });
+  });
+
+  // Spore klikk på e-postlenker
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', 'KlikkPåEpost');
+      }
+    });
+  });
 });
 
 // --- Fade in hero section + parallax scroll ---
